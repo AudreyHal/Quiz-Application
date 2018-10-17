@@ -1,0 +1,11 @@
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+  </div>
+  <form #form="ngForm" (ngSubmit)="submit(form.value); form.resetForm()">
+    <input type="text" placeholder="Add Todo" #todo  ngModel > 
+    <p>{{todo.value}}</p>
+    <button (click)="add(todo.value)">  submit</button>
+  </form>
+  <ul><li *ngFor= "let todo of todos; index as i;">{{todo}}<button (click)="delete(i)">X</button></li></ul>
