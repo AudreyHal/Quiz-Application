@@ -1,4 +1,30 @@
 <div>
+  <div id="quiz">
+        <h2 class=""></h2>
+
+<div *ngFor="let que of selectQuestion">
+ <p>Question {{variables.i + 1}} of {{variables.k}}</p><h3>{{que.question}}</h3>
+ <div *ngFor="let option of que.option">
+   <p> <input type="radio" (click)="select(que, option)" name="option">{{option.name}}</p>
+ </div>
+<!--  <p><input type="radio" (click)="select(que.A)" name="option" >{{que.A}}  </p>
+  <p><input type="radio" (click)="select(que.B)" name="option" >{{que.B}}</p>
+  <p><input type="radio" (click)="select(que.C)" name="option">{{que.C}}</p>
+  <p><input type="radio" (click)="select(que.D)" name="option">{{que.D}}</p>-->
+</div>
+ <button  (click)="move(variables.i - 1)">Prev</button>
+  <button (click)="move(variables.i + 1)">Next</button>
+  <button (click)="submit()">Submit</button></div>  
+
+  <div id="review" *ngFor="let que of quiz; let index = index">
+    <p (click)="move(index)">{{isAnswered(que)}}</p>
+
+  </div>
+<!--       <div id="questions" *ngFor="let question of filteredquestions">
+          <p>Question {{page.index+1}} of {{page.count}}</p>
+          <p>{{question.q}}</p>
+        </div>
+      </div>
   <label>name:
     <input [(ngModel)]="hero.name" placeholder="name">
   </label>
@@ -9,3 +35,4 @@
     <button (click)="add(todo.value)">  submit</button>
   </form>
   <ul><li *ngFor= "let todo of todos; index as i;">{{todo}}<button (click)="delete(i)">X</button></li></ul>
+-->

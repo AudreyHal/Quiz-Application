@@ -1,0 +1,5 @@
+
+[
+{"question": "what is 2+2", "option":[{"name":"2","isAnswer":false}, {"name":"4","isAnswer":true}, {"name":"6", "isAnswer":false},{ "name":"12", "isAnswer":false}]},
+{"question": "what is 4+0","option":[{"name":"2","isAnswer":false}, {"name":"4","isAnswer":true}, {"name":"6", "isAnswer":false},{ "name":"12", "isAnswer":false}]}
+]
