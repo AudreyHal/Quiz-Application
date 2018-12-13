@@ -1,25 +1,75 @@
 <div>
   <div id="quiz">
-        <h2 class=""></h2>
-
+    <div class="Firstpage" *ngIf="mode=='start'"><p>Are you ready to start</p><button (click)="begin()">Start</button></div>    
+<div class="quizpage center-block" *ngIf="mode=='quiz'">
+    <div class="wrapper center-block " >
+      <div class="timer right"> <p>Time : {{timeEllapsed}}</p></div>
 <div *ngFor="let que of selectQuestion">
- <p>Question {{variables.i + 1}} of {{variables.k}}</p><h3>{{que.question}}</h3>
+  <div class="question-cover ">
+ <p class="index">Question {{variables.i + 1}} of {{variables.k}}</p>
+ <p class= "question"><b>{{que.question}}</b></p></div>
  <div *ngFor="let option of que.option">
-   <p> <input type="radio" (click)="select(que, option)" name="option">{{option.name}}</p>
- </div>
-<!--  <p><input type="radio" (click)="select(que.A)" name="option" >{{que.A}}  </p>
-  <p><input type="radio" (click)="select(que.B)" name="option" >{{que.B}}</p>
-  <p><input type="radio" (click)="select(que.C)" name="option">{{que.C}}</p>
-  <p><input type="radio" (click)="select(que.D)" name="option">{{que.D}}</p>-->
+    <div class="option-cover ">
+      <form>
+      <label >
+
+   <div class="frame"> <input type="checkbox"   (click)="select(que, option)" [(ngModel)]="option.selected" name="option"><span>{{option.name}}</span></div></label>
+  </form></div></div>
 </div>
- <button  (click)="move(variables.i - 1)">Prev</button>
-  <button (click)="move(variables.i + 1)">Next</button>
-  <button (click)="submit()">Submit</button></div>  
 
-  <div id="review" *ngFor="let que of quiz; let index = index">
-    <p (click)="move(index)">{{isAnswered(que)}}</p>
+<div class="footercover row">
+    <div class="col s6 l3"> <button class="btn-small waves-effect "  (click)="move(variables.i - 1)">Previous</button></div>
+      <div class="col s6 l3"><button  class="btn-small waves-effect " (click)="move(variables.i + 1)">Next</button></div>
+        <div class="col s6 l3"> <button  class="btn-small waves-effect " (click)="reviewmode()" *ngIf="mode=='quiz'">Review</button></div>
+          <div class="col s6 l3">  <button  class="btn-small waves-effect " (click)="quizmode()" *ngIf="mode=='review'">Quiz</button></div>
+            <div class="col s6 l3"> <button  class="btn-small waves-effect " (click)="submit()">Submit</button></div>
+</div>
+</div> </div>
 
+
+<div class="quizpage center-block" *ngIf="mode=='review'">
+    <div class="timer right"> <p>Time : {{timeEllapsed}}</p></div>  
+<div class="wrapper center-block">
+  
+    <div id="review row" *ngFor="let que of quiz; let index = index" >
+      <div class="frame2 {{isAnswered(que)}} "  >
+          <p (click)="move(index)">Question {{index+1}} : {{isAnswered(que)}}</p></div>
   </div>
+    <div class="footercover row ">
+        <div class="col s6 l3"> <button class="btn-small waves-effect "  (click)="move(variables.i - 1)">Previous</button></div>
+          <div class="col s6 l3"><button  class="btn-small waves-effect " (click)="move(variables.i + 1)">Next</button></div>
+              <div class="col s6 l3">  <button  class="btn-small waves-effect " (click)="quizmode()" *ngIf="mode=='review'">Quiz</button></div>
+                <div class="col s6 l3"> <button  class="btn-small waves-effect " (click)="submit()">Submit</button></div>
+    </div></div></div> 
+   
+         
+<div class="quizpage center-block" *ngIf="mode=='result'">
+  <div class="wrapper center-block " >
+   <div *ngFor="let que of selectQuestion">
+<div class="question-cover ">
+<p class="index">Question {{variables.i + 1}} of {{variables.k}}</p>
+<p class= "question"><b>{{que.question}}</b></p></div>
+<div *ngFor="let option of que.option">
+  <div class="option-cover ">
+    <form>
+    <label >
+
+ <div class="frame-inactive {{option.isAnswer}}"> <input type="checkbox"   (click)="select(que, option)" [(ngModel)]="option.selected" name="option" disabled="true"><span>{{option.name}}</span></div></label>
+</form></div></div>
+<div class="{{isCorrect(que)}} center ">
+  <p>{{isCorrect(que)}}</p>
+ 
+  </div>
+
+
+</div>
+
+<div class="footercover row">
+  <div class="col s6 l3"> <button class="btn-small waves-effect "  (click)="move(variables.i - 1)">Previous</button></div>
+    <div class="col s6 l3"><button  class="btn-small waves-effect " (click)="move(variables.i + 1)">Next</button></div>
+
+</div></div>
+</div> </div>
 <!--       <div id="questions" *ngFor="let question of filteredquestions">
           <p>Question {{page.index+1}} of {{page.count}}</p>
           <p>{{question.q}}</p>
@@ -36,3 +86,4 @@
   </form>
   <ul><li *ngFor= "let todo of todos; index as i;">{{todo}}<button (click)="delete(i)">X</button></li></ul>
 -->
+   
