@@ -1,5 +1,6 @@
 
 [
-{"question": "what is 2+2", "option":[{"name":"2","isAnswer":false, "selected":true}, {"name":"4","isAnswer":true}, {"name":"6", "isAnswer":false},{ "name":"12", "isAnswer":false}]},
-{"question": "what is 4+0","option":[{"name":"2","isAnswer":false}, {"name":"4","isAnswer":true}, {"name":"6", "isAnswer":false},{ "name":"12", "isAnswer":false}]}
+{"question": "what is the name of the highest mountain in the world", "option":[{"name":"Himalayas","isAnswer":false}, {"name":"Kilimanjaro","isAnswer":true}, {"name":"Opo Hill", "isAnswer":false},{ "name":"Mount Carmen", "isAnswer":false}]},
+{"question": "what is 4+0","option":[{"name":"2","isAnswer":false}, {"name":"4","isAnswer":true}, {"name":"6", "isAnswer":false},{ "name":"12", "isAnswer":false}]},
+{"question": "what is the capital of Lagos", "option":[{"name":"Kebbi","isAnswer":false }, {"name":"Uyo","isAnswer":false}, {"name":"Benin", "isAnswer":false},{ "name":"Ikeja", "isAnswer":true}]}
 ]

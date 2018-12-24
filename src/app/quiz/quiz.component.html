@@ -1,7 +1,9 @@
 <div>
   <div id="quiz">
-    <div class="Firstpage" *ngIf="mode=='start'"><p>Are you ready to start</p><button (click)="begin()">Start</button></div>    
-<div class="quizpage center-block" *ngIf="mode=='quiz'">
+      <div class="startpage center-block" *ngIf="mode=='start'">
+    <div class="wrapper center-block " ><p class="center"></p><button class="btn-small waves-effect " (click)="begin()">Start</button></div>    
+  </div>
+    <div class="quizpage center-block" *ngIf="mode=='quiz'">
     <div class="wrapper center-block " >
       <div class="timer right"> <p>Time : {{timeEllapsed}}</p></div>
 <div *ngFor="let que of selectQuestion">
